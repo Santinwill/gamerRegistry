@@ -1,0 +1,104 @@
+======================================================================
+GUIA COMPLETO: INSTALAÇÃO DE DEPENDÊNCIAS E INICIALIZAÇÃO DA API Node.js
+======================================================================
+
+Este documento é a continuação direta dos guias anteriores. Com o banco
+de dados PostgreSQL totalmente configurado, estruturado (schema) e 
+populado (seed), o próximo passo é preparar o ambiente do Backend 
+(Node.js) e colocar o servidor para rodar.
+
+Siga atentamente as etapas abaixo utilizando o terminal do VS Code.
+
+----------------------------------------------------------------------
+PASSO 1: ABRIR O TERMINAL INTEGRADO DO VS CODE
+----------------------------------------------------------------------
+Para executar os comandos do Node.js, você precisa do terminal:
+
+1. No menu superior do VS Code, clique em: Terminal -> New Terminal.
+   (Ou utilize o atalho de teclado: Ctrl + Shift + ` ).
+2. Um painel de terminal (Prompt de Comando ou PowerShell) se abrirá 
+   na parte inferior da sua tela.
+
+----------------------------------------------------------------------
+PASSO 2: ENTRAR NA PASTA DO BACKEND (MUITO IMPORTANTE!)
+----------------------------------------------------------------------
+Repare na estrutura de arquivos do projeto que o arquivo 'package.json' 
+(que gerencia as dependências do projeto) está localizado especificamente 
+dentro da pasta chamada "backend". 
+
+Para o comando de instalação funcionar, seu terminal precisa estar lá 
+dentro. Execute o seguinte comando no terminal:
+
+cd backend
+
+* Nota: O caminho exibido na linha do terminal mudará, mostrando que 
+  você agora está dentro da pasta 'backend'.
+
+----------------------------------------------------------------------
+PASSO 3: INSTALAR AS DEPENDÊNCIAS DO PROJETO
+----------------------------------------------------------------------
+Agora vamos mandar o Node.js baixar e instalar todas as dependências 
+necessárias que o projeto utiliza (como Express, pg e cors).
+
+1. Com o terminal dentro da pasta 'backend', digite o comando abaixo 
+   e aperte Enter:
+
+npm install
+
+2. Aguarde alguns segundos enquanto o download é feito.
+3. Quando o processo terminar, note que uma nova pasta chamada 
+   "node_modules" e um arquivo "package-lock.json" terão sido criados 
+   automaticamente dentro da sua pasta 'backend'.
+
+----------------------------------------------------------------------
+PASSO 4: REVISAR AS CREDENCIAIS DE ACESSO AO BANCO DE DADOS
+----------------------------------------------------------------------
+Antes de ligar o servidor, precisamos garantir que o arquivo de 
+conexão do Node.js está usando a senha correta que você definiu para 
+o seu PostgreSQL local.
+
+1. No menu lateral de arquivos do VS Code, abra o arquivo:
+   backend/db.js
+2. Localize as configurações do 'Pool' de conexão:
+   const pool = new Pool({
+       user: 'postgres',
+       host: 'localhost',
+       database: 'gamer_registry',
+       password: 'root', // <-- VERIFIQUE ESTA LINHA
+       port: 5432,
+   });
+3. Se a senha do seu PostgreSQL na sua máquina local for diferente 
+   de 'root', apague 'root' e digite a sua senha correta entre as aspas.
+4. Salve o arquivo (Ctrl + S).
+
+----------------------------------------------------------------------
+PASSO 5: INICIALIZAR O SERVIDOR DA APLICAÇÃO
+----------------------------------------------------------------------
+Tudo pronto! Vamos ligar a API backend e disponibilizar o sistema.
+
+1. Volte ao terminal do VS Code (que ainda deve estar dentro da 
+   pasta 'backend').
+2. Digite o comando abaixo e aperte Enter:
+
+npm start
+
+3. O terminal deverá exibir exatamente a seguinte mensagem de sucesso:
+   "Servidor rodando em http://localhost:3000"
+
+----------------------------------------------------------------------
+PASSO 6: ACESSAR A INTERFACE NO NAVEGADOR
+----------------------------------------------------------------------
+1. Deixe o terminal do VS Code aberto e rodando (não feche o terminal, 
+   senão o servidor desliga).
+2. Abra o seu navegador de internet de preferência (Chrome, Edge, etc.).
+3. Digite o seguinte endereço na barra de navegação e acesse:
+
+http://localhost:3000
+
+4. A tela inicial (Home) do "Gamer Registry" carregará. A partir daí, 
+   você já pode navegar pelas abas superiores (Gamers, Games, Gamer & Games), 
+   cadastrar novos registros e testar a persistência com o banco!
+
+======================================================================
+PROJETO EXECUTANDO COM SUCESSO! PRONTO PARA COMPREENDER E CRIAR OS TESTES.
+======================================================================
