@@ -1,0 +1,57 @@
+======================================================================
+GUIA COMPLETO: CONFIGURAÇÃO DO BANCO DE DADOS NO DBEAVER
+======================================================================
+
+Este documento orienta como criar a conexão local com o PostgreSQL
+utilizando o DBeaver para gerenciar as tabelas do projeto.
+
+----------------------------------------------------------------------
+PASSO 1: CRIAR UMA NOVA CONEXÃO
+----------------------------------------------------------------------
+1. Abra o DBeaver na sua máquina.
+2. No menu superior, clique no ícone de tomada com um sinal de mais (+) 
+   ou acesse: Banco de Dados -> Nova Conexão.
+3. Na lista de drivers que aparecer, selecione "PostgreSQL" e clique 
+   em "Avançar" (Next).
+
+----------------------------------------------------------------------
+PASSO 2: CONFIGURAR AS CREDENCIAIS DO POSTGRESQL
+----------------------------------------------------------------------
+Na aba "Main" (Principal), preencha os campos exatamente com as 
+configurações da sua máquina local:
+
+- Host: localhost
+- Porta: 5432
+- Banco de dados (Database): gamer_registry
+- Nome de usuário (Username): postgres
+- Senha (Password): [Digite a sua senha local do PostgreSQL]
+
+* Nota: Certifique-se de preencher a senha real do seu usuário local.
+
+----------------------------------------------------------------------
+PASSO 3: TESTAR E SALVAR A CONEXÃO
+----------------------------------------------------------------------
+1. No canto inferior esquerdo da janela de configuração, clique no 
+   botão "Testar Conexão..." (Test Connection).
+2. Se for a sua primeira vez conectando ao Postgres pelo DBeaver, ele 
+   pode abrir uma janelinha pedindo para baixar os drivers. Basta 
+   clicar em "Download".
+3. Se aparecer uma mensagem de sucesso ("Conectado / Connected"), 
+   clique em "OK" e depois em "Concluir" (Finish).
+
+----------------------------------------------------------------------
+PASSO 4: EXECUTAR SCRIPTS SQL (SE PRECISAR REFAZER AS TABELAS)
+----------------------------------------------------------------------
+Caso queira rodar o arquivo 'schema.sql' ou 'seed.sql' direto por ele:
+
+1. No menu lateral esquerdo do DBeaver (Navegador de Banco de Dados), 
+   clique com o botão direito em cima do seu banco "gamer_registry".
+2. Escolha a opção: Editor SQL -> Novo Editor SQL.
+3. Copie o conteúdo do arquivo 'schema.sql' (ou 'seed.sql') do seu 
+   projeto, cole na tela central do DBeaver.
+4. Para executar tudo, pressione as teclas: (Ctrl + Alt + X) ou clique 
+   no ícone da seta laranja na barra lateral esquerda do editor.
+
+======================================================================
+FIM DO GUIA - DBEAVER INTEGRADO AO BANCO DO PROJETO!
+======================================================================
