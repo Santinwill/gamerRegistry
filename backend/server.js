@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const setupDatabase = require('./init-db');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(3000, () => {
+app.listen(3000, async () => {
+    await setupDatabase(); 
     console.log('Servidor rodando em http://localhost:3000');
 });
